@@ -1,0 +1,226 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #020617;
+  color: #e2e8f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(37, 99, 235, 0.22), transparent 35%),
+    radial-gradient(circle at bottom, rgba(14, 165, 233, 0.15), transparent 30%),
+    #020617;
+}
+
+canvas {
+  touch-action: none;
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hud-root {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.hud-panel {
+  pointer-events: auto;
+  width: min(420px, calc(100vw - 2rem));
+  backdrop-filter: blur(16px);
+  background: rgba(2, 6, 23, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 18px 80px rgba(15, 23, 42, 0.55);
+  padding: 1rem;
+  align-self: flex-start;
+}
+
+.hud-panel--right {
+  width: min(340px, calc(100vw - 2rem));
+}
+
+.hud-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.hud-kicker {
+  color: #7dd3fc;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.35rem;
+}
+
+.hud-panel h1,
+.flight-card h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 1rem + 1vw, 2rem);
+  line-height: 1.05;
+}
+
+.hud-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.hud-field,
+.hud-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.8rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.hud-field span,
+.hud-toggle span,
+.hud-stats span,
+.flight-card dt {
+  color: #94a3b8;
+  font-size: 0.82rem;
+}
+
+.hud-field select,
+.hud-field input[type='range'] {
+  width: 100%;
+}
+
+.hud-toggle {
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hud-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.hud-stats div {
+  padding: 0.75rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.52);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.hud-stats strong,
+.hud-field strong {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.98rem;
+  color: #f8fafc;
+}
+
+.hud-button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.72rem 1rem;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+}
+
+.hud-button:hover {
+  transform: translateY(-1px);
+}
+
+.hud-error {
+  margin-top: 0.9rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 14px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.32);
+  color: #fecaca;
+}
+
+.flight-card,
+.flight-empty {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.flight-card dl {
+  margin: 1rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.flight-card dd {
+  margin: 0.3rem 0 0;
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.flight-empty {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+@media (max-width: 1080px) {
+  .hud-root {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hud-panel,
+  .hud-panel--right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .hud-stats,
+  .hud-grid,
+  .flight-card dl {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hud-root {
+    overflow: auto;
+  }
+}

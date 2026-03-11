@@ -1,5 +1,3 @@
-# 3DFlightTracker
-3DFlightTracker
 # 3D Flight Tracker
 
 Production-quality 3D flight tracking built with **React + Vite + Three.js** using **react-three-fiber** and **drei**. The app renders live OpenSky aircraft on a rotatable 3D Earth with smooth motion, altitude-aware placement, and a polished HUD.

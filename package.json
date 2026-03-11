@@ -1,0 +1,35 @@
+{
+  "name": "flight-tracker-3d",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"node server/server.mjs\"",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server/server.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.0.7",
+    "@react-three/fiber": "^9.0.0",
+    "@react-three/postprocessing": "^3.0.4",
+    "express": "^5.1.0",
+    "postprocessing": "^6.37.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.174.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0"
+  },
+  "description": "Production-quality 3D flight-tracking web app using React, Vite, Three.js, and OpenSky.",
+  "engines": {
+    "node": ">=20"
+  }
+}
